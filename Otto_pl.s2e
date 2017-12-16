@@ -1,0 +1,314 @@
+﻿{
+    "extensionName": "Otto_pl",
+    "description": "Otto extension translated",
+    "version": "0.1",
+    "author": "TechOcean",
+    "homepage": "",
+    "sort": 0,
+    "javascriptURL": "js/demo.js",
+    "firmware": "1.0",
+    "extensionPort": 0,
+    "tags": "Otto,Vbot",
+"blockSpecs": [
+    [
+        "r",
+        "odczytaj odległość",
+        "odczytaj odległość",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.getDistance()",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "pozycja startowa",
+        "pozycja startowa",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.home();\n",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "Ustawienie zerowe Lewa Noga %n Prawa Noga %n Lewa Stopa %n Prawa Stopa %n",
+        "Ustawienie zerowe",
+        "0",
+        "0",
+        "0",
+        "0",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.setTrims({0},{1},{2},{3});\notto.saveTrimsOnEEPROM();\n ",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "Zrób %n kroków, prędkość %n do %d.action",
+        "walk",
+        "1",
+        "1000",
+        "PRZODU",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.walk({0},{1},{2});\n ",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "obrót %n kroków, prędkość  %n do %d.turn",
+        "turn",
+        "1",
+        "1000",
+        "PRAWO",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.turn({0},{1},{2});\n ",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "góra dół %n razy, zakres ruchu: %n",
+        "updown",
+        "1",
+        "1000",
+        "15",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.updown({0},{1},{2});\n ",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "moonwalk %n kroków, prędkość %n wielkość kroku: %n w %d.turn",
+        "updown",
+        "1",
+        "1000",
+        "15",
+        "PRAWO",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.moonwalker({0},{1},{2},{3});\n ",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "swing %n kroków, prędkość %n wielkość kroku %n",
+        "swing",
+        "1",
+        "1000",
+        "15",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.swing({0},{1},{2});\n ",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "crusaito %n kroków, prędkość %n wielkość kroku: %n do %d.action",
+        "crusaito",
+        "1",
+        "1000",
+        "15",
+        "PRZODU",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.crusaito({0},{1},{2},{3});\n ",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "flapping %n kroków, prędkość %n wielkość kroku %n do %d.action",
+        "flapping",
+        "1",
+        "1000",
+        "15",
+        "PRZODU",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.flapping({0},{1},{2},{3});\n ",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "skok %n razy, prędkość %n",
+        "jump",
+        "1",
+        "1000",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.jump({0},{1});\n ",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "bujanie się na palcach %n razy, prędkość %n wielkość kroku %n",
+        "tiptoeSwing",
+        "1",
+        "1000",
+        "15",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.tiptoeSwing({0},{1},{2});\n ",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "wygięcie %n razy, prędkość %n w %d.turn",
+        "bend",
+        "1",
+        "1000",
+        "PRAWO",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.bend({0},{1},{2});\n ",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "machanie nogą %n razy, prędkość %n w %d.turn",
+        "shakeLeg",
+        "1",
+        "1000",
+        "PRAWO",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.shakeLeg({0},{1},{2});\n ",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "drganie %n razy, prędkość %n wielkość ruchu %n",
+        "jitter",
+        "1",
+        "1000",
+        "15",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.jitter({0},{1},{2});\n ",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "Obrót ze wspięciem %n razy, prędkość %n wielkość ruchu %n",
+        "ascendingTurn",
+        "1",
+        "1000",
+        "15",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.ascendingTurn({0},{1},{2});\n ",
+            "loop":"  "
+        }
+    ],
+    [
+        "w",
+        "Dźwięk: %d.kind",
+        "sing",
+        "S_podłączono",
+        {
+            "inc":"#include <Servo.h>\n#include <Oscillator.h>\n#include <EEPROM.h>\n#include <BatReader.h>\n#include <US.h>\n#include <Otto.h>\n#include <LedMatrix.h>\n",
+            "def":"Otto otto;\n ",
+            "setup":"otto.init(2, 3, 4, 5, true);\n",
+            "work":"otto.sing({0});\n ",
+            "loop":"  "
+        }
+    ]
+
+],
+"menus": {
+    "action":["PRZODU","TYŁU"],
+    "turn":["PRAWO","LEWO"],
+    "kind":["S_podłączono","S_rozłączono","S_niespodzianka","S_OhOoh","S_OhOoh2","S_cuddly","S_śpiący","S_szczęśliwy","S_bardzoSzczęśliwy","S_szczęśliwy_krótki","S_smutny","S_zmieszany"]
+},
+"values":{
+    "PRZODU":1,
+    "TYŁU":-1,
+    "PRAWO":1,
+    "LEWO":-1,
+    "S_podłączono":0,
+    "S_rozłączono":1,
+    "S_niespodzianka":6,
+    "S_OhOoh":7,
+    "S_OhOoh2":8,
+    "S_cuddly":9,
+    "S_śpiący":10,
+    "S_szczęśliwy":11,
+    "S_bardzoSzczęśliwy":12,
+    "S_szczęśliwy_krótki":13,
+    "S_smutny":14,
+    "S_zmieszany":15
+},
+"translators":{
+    "ko":{
+        "Demo Program":"  ",
+        "PRZODU":"전진",
+        "TYŁU":"후진",
+        "PRAWO":"오른쪽",
+        "LEWO":"왼쪽",
+        "walk step %n speed %n as %d.action":"걷기 스텝 %n 속도 %n 방향 %d.action",
+        "home":"차렷",
+        "setTrims YL %n YR %n RL %n RR %n":"다리설정 왼쪽허벅지 %n 오른쪽허벅지 %n 왼쪽발 %n 오른쪽발 %n",
+        "turn step %n speed %n as %d.turn":"돌기 스텝 %n 속도 %n 방향 %d.turn",
+        "updown step %n moveSize %n":"발들었다놓기 스텝 %n 움직임크기 %n",
+        "moonwalker step %n speed %n moveSize %n as %d.turn":"문워크춤 스텝 %n 속도 %n 움직임크기 %n 방향 %d.turn",
+        "swing step %n speed %n moveSize %n":"스윙춤 스텝 %n 속도 %n 움직임크기 %n",
+        "crusaito step %n speed %n moveSize %n as %d.action":"크루세이토 스텝 %n 속도 %n 움직임크기 %n 방향 %d.action",
+        "flapping step %n speed %n moveSize %n as %d.action":"플랩핑 스텝 %n 속도 %n 움직임크기 %n 방향 %d.action",
+        "read ultrasonic":"초음파 거리인식",
+        "jump step %n speed %n":"점프 스텝 %n 속도 %n",
+        "tiptoeSwing step %n speed %n moveSize %n":"발끝스윙 스텝 %n 속도 %n 움직임크기 %n",
+        "bend step %n speed %n as %d.turn":"구부리기 스텝 %n 속도 %n 움직임크기 %n 방향 %d.turn",
+        "shakeLeg step %n speed %n as %d.turn":"다리떨기 스텝 %n 속도 %n 방향 %d.turn",
+        "jitter step %n speed %n moveSize %n":"잔떨림 스텝 %n 속도 %n 움직임크기 %n",
+        "ascendingTurn step %n speed %n moveSize %n":"올림돌기 스텝 %n 속도 %n 움직임크기 %n",
+        "sing %d.kind":"소리내기 %d.kind"
+    }
+}
+}
